@@ -16,11 +16,10 @@ int main()
 
         for (int i = 0; i < num.length() / 2; i++)
         {
-            if (num[i] != num[num.length() - i])
+            if (num[i] != num[num.length() - i - 1])
             {
                 isSame = false;
             }
-            std::cout << num[i] << ' ' << num[num.length() - 1] << std::endl;
         }
         if (isSame)
         {
