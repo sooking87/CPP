@@ -6,8 +6,7 @@ int main()
     int start;
     int end;
     int num;
-    std::cin >> start;
-    std::cin >> end;
+    std::cin >> start >> end;
 
     for (int i = start; i <= end; i++)
     {
@@ -15,7 +14,7 @@ int main()
         // 1이면 소수가 아니고 2, 3은 소수이다.
         if (num == 1 && i != 1)
         {
-            std::cout << i << std::endl;
+            std::cout << i << '\n';
             continue;
         }
         else
@@ -28,7 +27,7 @@ int main()
                 }
                 if (j == num)
                 {
-                    std::cout << i << std::endl;
+                    std::cout << i << '\n';
                 }
             }
         }
