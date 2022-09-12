@@ -15,6 +15,13 @@ public:
     {
         std::cout << "Name: " << name << std::endl;
     }
+    virtual int GetPay() const
+    {
+        return 0;
+    }
+    virtual void ShowSalaryInfo() const
+    {
+    }
 };
 
 class PermanentWorker : public Employee
@@ -106,18 +113,18 @@ public:
     }
     void ShowAllSalaryInfo() const
     {
-        // for (int i = 0; i < empNum; i++)
-        // {
-        //     empList[i]->ShowSalaryInfo();
-        // }
+        for (int i = 0; i < empNum; i++)
+        {
+            empList[i]->ShowSalaryInfo();
+        }
     }
     void ShowTotalSalary() const
     {
         int sum = 0;
-        // for (int i = 0; i < empNum; i++)
-        // {
-        //     sum += empList[i]->GetPay();
-        // }
+        for (int i = 0; i < empNum; i++)
+        {
+            sum += empList[i]->GetPay();
+        }
         std::cout << "salary sum: " << sum << std::endl;
     }
     ~EmployeeHandler()
@@ -131,27 +138,27 @@ public:
 
 int main()
 {
-    // ì§ì›ê´€ë¦¬ë¥¼ ëª©ì ìœ¼ë¡œ ì„¤ê³„ëœ ì»¨íŠ¸ë¡¤ í´ë˜ìŠ¤ì˜ ê°ì²´ ìƒì„±
+    // Á÷¿ø°ü¸®¸¦ ¸ñÀûÀ¸·Î ¼³°èµÈ ÄÁÆ®·Ñ Å¬·¡½ºÀÇ °´Ã¼ »ı¼º
     EmployeeHandler handler;
 
-    // ì •ê·œì§ ë“±ë¡
+    // Á¤±ÔÁ÷ µî·Ï
     handler.AddEmployee(new PermanentWorker("KIM", 1000));
     handler.AddEmployee(new PermanentWorker("LEE", 1500));
 
-    // ì„ì‹œì§ ë“±ë¡
+    // ÀÓ½ÃÁ÷ µî·Ï
     TemporaryWorker *alba = new TemporaryWorker("Jung", 700);
     alba->AddWorkTime(5);
     handler.AddEmployee(alba);
 
-    // ì˜ì—…ì§ ë“±ë¡
+    // ¿µ¾÷Á÷ µî·Ï
     SalesWorker *seller = new SalesWorker("Hong", 1000, 0.1);
     seller->AddSalesResult(7000);
     handler.AddEmployee(seller);
 
-    // ì´ë²ˆ ë‹¬ì— ì§€ë¶ˆí•´ì•¼ í•  ê¸‰ì—¬ì˜ ì •ë³´
+    // ÀÌ¹ø ´Ş¿¡ ÁöºÒÇØ¾ß ÇÒ ±Ş¿©ÀÇ Á¤º¸
     handler.ShowAllSalaryInfo();
 
-    // ì´ë²ˆ ë‹¬ì— ì§€ë¶ˆí•´ì•¼ í•  ê¸‰ì—¬ì˜ ì´í•©
+    // ÀÌ¹ø ´Ş¿¡ ÁöºÒÇØ¾ß ÇÒ ±Ş¿©ÀÇ ÃÑÇÕ
     handler.ShowTotalSalary();
     return 0;
 }
